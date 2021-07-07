@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>구구단</title>
+ 
+<style>
+	.box1 {
+		border-radius: 10px;
+		border: 2px solid #73AD21;
+		background-color : #73AD21;
+		padding: 10px; 
+		margin : 10px;
+		width: 400px;
+		height: 20px; 
+		color : white;
+		text-align : center;
+	}
+	.rdan {
+		margin-top: 80px; 
+		font-size : 40px;
+		text-align : center;
+	}
+	.box2 {		 
+		padding: 10px; 
+		margin : 10px;
+		width: 400px; 
+		text-align : center;
+	} 
+	#msg {
+		width : 400px;
+		height : 200px;
+		margin : 10px;
+		padding: 10px;  
+		border: 1px solid #73AD21;
+		font-size : 14px;
+		color : red;
+		text-align : center;
+	}
+	img {
+		width : 50px;
+		height :50px;
+	}
+</style>
+<script>
+	//구구단 표시
+	function showDan() {
+		if (myform.dan.value=="") {alert("단을 선택하세요.");
+									myform.dan.focus();
+									return;}
+		var dan = parseInt(myform.dan.value);
+		var str = "";
+		var i=1;
+		
+		while(i<=9) {
+			//i++;
+			str=str+dan+"X"+i+"="+(dan*i)+"<br>";
+			i++;
+		}
+		/*
+		var i=10;
+		do {i++;
+			str=str+dan+"X"+i+"="+(dan*i)+"<br>";
+			}
+		while(i<9);
+		*/
+		/*
+		for(var i=1; i<=9; i++) { 
+									str=str+dan+"X"+i+"="+(dan*i)+"<br>";
+									}
+		*/
+		/*
+		str= str + dan + "*" + 1 + "=" + (dan*1) + "<br>";
+		str= str + dan + "*" + 2 + "=" + (dan*2) + "<br>";
+		str= str + dan + "*" + 3 + "=" + (dan*3) + "<br>";
+		str= str + dan + "*" + 4 + "=" + (dan*4) + "<br>";
+		str= str + dan + "*" + 5 + "=" + (dan*5) + "<br>";
+		str= str + dan + "*" + 6 + "=" + (dan*6) + "<br>";
+		str= str + dan + "*" + 7 + "=" + (dan*7) + "<br>";
+		str= str + dan + "*" + 8 + "=" + (dan*8) + "<br>";
+		str= str + dan + "*" + 9 + "=" + (dan*9) + "<br>";
+		*/
+		
+		document.getElementById("msg").innerHTML=str;
+	}
+	//랜덤 구구단							
+	function showRandom() {
+		var str="";
+		var dan = Math.floor(Math.random() * 8) + 2;
+		var i = Math.floor(Math.random() * 9) + 1;
+		var ans = dan * i;
+		var ans10 = parseInt(ans/10);
+		var ans1 = ans % 10;
+		
+		str=str+"<img src='./img/" + dan + ".png'>" ;
+		str=str+"<img src='./img/x.png'>";
+		str=str+"<img src='./img/" + i + ".png'>";
+		str=str+"<img src='./img/equal.png'>";
+		if(ans10==0) {
+			str=str+"<img src='./img/blank.png'>";
+		}
+		else { 
+			str=str+"<img src='./img/" + ans10 + ".png'>";
+		}
+		str = str + "<img src='./img/" + ans1 + ".png'>";
+		
+		document.getElementById("msg").innerHTML=str;
+		}
+	function showClear() {
+		myform.reset();
+		document.getElementById("msg").innerHTML="";
+	}
+</script>
+</head>
+<body>
+<form name="myform">
+	<div class="box1">
+		구구단 학습하기
+	</div>
+	<div class="box2">
+		<select name="dan">
+			<option value="">단선택</option>
+			<option value="2">2단</option>
+			<option value="3">3단</option>
+			<option value="4">4단</option>
+			<option value="5">5단</option>
+			<option value="6">6단</option>
+			<option value="7">7단</option>
+			<option value="8">8단</option>
+			<option value="9">9단</option>
+		</select>
+		<input type="button" value="단보기" onclick="showDan();">
+		<input type="button" value="랜덤보기" onclick="showRandom();">
+		<input type="button" value="지우기" onclick="showClear();">
+	</div>
+	
+	<div id="msg">
+		
+	</div>
+</form>
+</body>
+</html>
