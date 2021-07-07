@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>자바스크립트 연습</title>
+		<script>
+			function show1() {
+								//공백 체크
+								if (myform.txt_num1.value == "") { 
+																	alert("첫번째 숫자를 입력하세요.");
+																	myform.txt_num1.focus();
+																	return;
+																	}
+								if (myform.txt_num2.value == "") { 
+																	alert("두번째 숫자를 입력하세요.");
+																	myform.txt_num2.focus();
+																	return;
+																	}
+								if (myform.r_op.value == "") { 
+																	alert("연산자를 선택하세요.");
+																	return;
+																	}
+								//변수 선언											
+								var num1=parseInt(myform.txt_num1.value);
+								var num2=parseInt(myform.txt_num2.value);
+								var ans = "";
+								var str = "";
+								//결과 계산
+								if (myform.r_op.value == "+") {ans = num1 + num2;}
+								else if (myform.r_op.value == "-") {ans = num1 - num2;} 
+								else if (myform.r_op.value == "*") {ans = num1 * num2;} 
+								else if (myform.r_op.value == "/") {ans = num1 / num2;} 
+								//수식포함여부
+								if (myform.ck_eval.checked == true)  {str = num1 + myform.r_op.value + num2 + "=" + ans;}
+								else {str=ans;}
+								
+								document.getElementsByClassName("box3")[0].innerHTML = str;
+								}
+			function show2() {
+								myform.reset();
+								document.getElementsByClassName("box3")[0].innerHTML ="";
+								}
+		</script>
+		<style>
+			div { 
+					margin:5px;
+					}
+			p {
+				margin : 10px;
+				padding : 10px;
+			
+				}
+			.box1 {
+					width:800px;
+					margin:10px;
+					padding:5px 10px;
+					height:80px;
+					background-color:#00BFFF;
+					color:white;
+					text-align:center;
+					font-size:50px;
+					border-radius:10px;
+					}
+			.box2 {
+					width:800px;
+					height:200px;
+					padding:10px;
+					border:3px solid #00BFFF;
+					}
+			.box3 {
+					padding:10px;
+					width:800px;
+					height:150px;
+					border:3px solid #00BFFF;
+					}
+			#txt_num1 {
+						width:150px;
+						height:30px;
+						}
+			#txt_num2 {
+						width:150px;
+						height:30px;
+						}
+			input[type=button] {
+							width:100px;
+							height:30px;
+							}
+			.box2>p { 
+						float:left;
+						}
+			.pc1 {
+					width:25%;
+					margin:10px 5px 10px 10px;
+					padding:10px 0px 10px 10px;
+					}
+			.pc2 {
+					width:5%;
+					margin : 10px 10px 10px 5px;
+					padding:10px 10px 10px 0px;
+			.pc3 {
+					width:25%;
+					}
+			.pc4 {
+					width:25%;
+					}
+					}
+			.pc5 {
+					width:95%;
+					clear:both;
+					background-color:#CEECF5;
+					}
+		</style>
+	</head>
+	<body>
+		<form name="myform" method="get" action="">
+			<div class="box1">
+			간단한 계산기
+			</div>
+			<div class="box2">
+				<p class="pc1">
+					<input type="text" name="txt_num1" id="txt_num1" placeholder="숫자1">
+				</p>
+				<p class="pc2">
+					<input type="radio" name="r_op" id="r_op1" value="+">
+					<label for="r_op1">+</label><br>
+					<input type="radio" name="r_op" id="r_op2" value="-">
+					<label for="r_op2">-</label><br>
+					<input type="radio" name="r_op" id="r_op3" value="*">
+					<label for="r_op3">*</label><br>
+					<input type="radio" name="r_op" id="r_op4" value="/">
+					<label for="r_op4">/</label><br>
+				</p>
+				<p class="pc3">
+					<input type="text" name="txt_num2" id="txt_num2" placeholder="숫자2">
+				</p>
+				<p class="pc4">
+					<input type="button" value="=" onclick="show1();">
+					<input type="button" value="취소" onclick="show2();">
+				</p>
+				<p class="pc5">
+					<input type="checkbox" name="ck_eval" id="ck_eval">
+					<label for="ck_eval">수식포함</label>
+				</p>
+			</div>
+			<div class="box3">
+			</div>
+		</form>
+	</body>
+</html>

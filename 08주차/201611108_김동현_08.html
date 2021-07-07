@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>자바스크립트 연습</title>
+		<script>
+			//지우기
+			function showCE() {
+				document.getElementsByClassName("box2")[0].innerHTML=""
+			}
+			function showC() {
+								var str = document.getElementsByClassName("box2")[0].innerHTML;
+								str=str.substr(0, str.length-1);
+								document.getElementsByClassName("box2")[0].innerHTML = str;
+			}
+			//수식만들기					
+			function show(n) {	
+				var str=document.getElementsByClassName("box2")[0].innerHTML;
+				
+				str=str + n;
+				document.getElementsByClassName("box2")[0].innerHTML = str;
+			}
+			
+			//계산하기
+			function showeval() {
+				var str=document.getElementsByClassName("box2")[0].innerHTML;
+				str = eval(str);
+				document.getElementsByClassName("box2")[0].innerHTML = str;
+			}
+		</script>
+		<style>
+			form { 
+					border:2px solid #00BFFF;
+					border-radius:10px;
+					width:800px;
+					}
+			div { 
+					margin:5px;
+					}
+			p {
+				margin : 10px;
+				padding : 20px 40px 20px 180px;
+			
+				}
+			.box1 {
+					width:80%;
+					margin:10px 10px 10px 80px;
+					padding:5px 10px;
+					height:80px;
+					background-color:#00BFFF;
+					color:white;
+					text-align:center;
+					font-size:50px;
+					border-radius:10px;
+					}
+			input[type=button] {
+									width:100px;
+									height:50px;
+									}
+			.box2 {
+					border:1px solid #CEF6F5;
+					margin:5px 5px 5px 80px;
+					height:100px;
+					width:80%;
+					text-align:right;
+					color:black;
+						}
+		</style>
+	</head>
+	<body>
+		<form name="myform" method="get" action="">
+			<div class="box1">
+			자바스크립트 계산기
+			</div>
+			<div class="box2">
+			</div>
+			<div class="box3">
+				<p class="pc1">
+					<input type="button" value="CE" onclick="showCE();">
+					<input type="button" value="C" onclick="showC();">
+					<input type="button" value="." onclick="show('.');">
+					<input type="button" value="/" onclick="show('/');">
+				</p>
+				<p class="pc2">
+					<input type="button" value="7" onclick="show('7');">
+					<input type="button" value="8" onclick="show('8');">
+					<input type="button" value="9" onclick="show('9');">
+					<input type="button" value="*" onclick="show('*');">
+				</p>
+				<p class="pc3">
+					<input type="button" value="4" onclick="show('4');">
+					<input type="button" value="5" onclick="show('5');">
+					<input type="button" value="6" onclick="show('6');">
+					<input type="button" value="-" onclick="show('-');">
+				</p>
+				<p class="pc4">
+					<input type="button" value="1" onclick="show('1');">
+					<input type="button" value="2" onclick="show('2');">
+					<input type="button" value="3" onclick="show('3');">
+					<input type="button" value="+" onclick="show('+');">
+				</p>
+				<p class="pc5">
+					<input type="button" value="(" onclick="show('(');">
+					<input type="button" value="0" onclick="show('0');">
+					<input type="button" value=")" onclick="show(')');">
+					<input type="button" value="=" onclick="showeval();">
+				</p>
+			</div>
+		</form>
+	</body>
+</html>

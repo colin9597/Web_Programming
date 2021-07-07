@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JACASCRIPT 연습</title>
+		<script>
+			function show1() {
+								document.getElementById("pc1").innerHTML="안녕하세요.";
+									}
+			function show2() {
+								document.getElementsByTagName("p")[1].innerHTML="안녕하세요.";								
+									}
+			function show3() {
+								document.getElementsByClassName("pc2")[1].innerHTML="안녕하세요.";
+									}
+			function init() {
+								document.getElementById("pc1").innerHTML="첫번째 영역입니다.";
+								document.getElementById("pc2").innerHTML="두번째 영역입니다.";
+								document.getElementById("pc3").innerHTML="세번째 영역입니다.";
+									}
+			function show(n) {
+								/*
+								if (n==1) {document.getElementById("pc1").innerHTML="안녕하세요.";}
+								else if (n==2) {document.getElementsByTagName("p")[1].innerHTML="안녕하세요.";}
+								else {document.getElementsByClassName("pc2")[1].innerHTML="안녕하세요.";}
+								*/
+								init();
+								switch(n) {
+												case 1 : document.getElementById("pc1").innerHTML="안녕하세요.";
+												break
+												case 2 : document.getElementsByTagName("p")[1].innerHTML="안녕하세요.";
+												break
+												case 3 : document.getElementsByClassName("pc2")[1].innerHTML="안녕하세요.";
+												break
+												}
+									}
+									
+										
+		</script>
+	</head>
+	<body>
+		<h1>
+		JACASCRIPT 연습
+		</h1>
+		<p class="pc1" id="pc1">
+		첫번째 영역입니다.
+		</p>
+		<p class="pc2" id="pc2">
+		두번째 영역입니다.
+		</p>
+		<p class="pc2" id="pc3">
+		세번째 영역입니다.
+		</p>
+		<form name="form1">
+			<input type="button" value="첫번째영역" onclick="show(1);"> 
+			<input type="button" value="두번째영역" onclick="show(2);">
+			<input type="button" value="세번째영역" onclick="show(3);">
+		</form>
+	</body>
+</html>
